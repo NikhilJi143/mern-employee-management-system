@@ -15,10 +15,14 @@ const app = express();
 // Database
 connectDB();
 
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://mern-employee-management-system-1-xfi7.onrender.com",
+];
 // Middleware
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: allowedOrigins,
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
   }),
