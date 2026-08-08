@@ -98,25 +98,46 @@ MERN-Employee-Management/
 ├── frontend/
 │   ├── public/
 │   ├── src/
+│   │   ├── assets/
+│   │   │   └── styles/
+|   |   |         └── ...
 │   │   ├── components/
+│   │   │   ├── employees/
+|   |   |   |    ├── EmployeeForm.jsx
+|   |   |   |    ├── EmployeeTable.jsx
+|   |   |   |    ├── Pagination.jsx
+|   |   |   |    └── SearchBar.jsx
+│   │   │   └── tasks/
+|   |   |   |    ├── TaskFilter.jsx
+|   |   |   |    ├── TaskForm.jsx
+|   |   |   |    └── TaskTable.jsx
+│   │   │   ├── EmptyState.jsx
 │   │   │   ├── Layout.jsx
+│   │   │   ├── Loader.jsx
 │   │   │   ├── Navbar.jsx
-│   │   │   ├── Sidebar.jsx
 │   │   │   ├── ProtectedRoute.jsx
-│   │   │   └── ...
+│   │   │   └── Sidebar.jsx
+│   │   ├── context/
+│   │   │   └── AuthContext.jsx
+│   │   ├── hooks/
+│   │   │   └── useAuth.js
 │   │   ├── pages/
-│   │   │   ├── Login.jsx
-│   │   │   ├── Register.jsx
 │   │   │   ├── Dashboard.jsx
 │   │   │   ├── Employees.jsx
-│   │   │   ├── Tasks.jsx
+│   │   │   ├── Login.jsx
+│   │   │   ├── NotFound.jsx
 │   │   │   ├── Profile.jsx
-│   │   │   └── NotFound.jsx
+│   │   │   ├── Register.jsx
+│   │   │   └── Tasks.jsx
 │   │   ├── services/
 │   │   │   └── api.js
-│   │   ├── styles/
-│   │   │   └── ...
+│   │   ├── utils/
+│   │   │   ├── confirmDelete.js
+│   │   │   ├── constants.js
+│   │   │   └── errorHandler.js
+│   │   ├── App.css
 │   │   ├── App.jsx
+│   │   ├── index.css
 │   │   └── main.jsx
 │   ├── package.json
 │   └── vite.config.js
@@ -127,19 +148,19 @@ MERN-Employee-Management/
 │   ├── controllers/
 │   │   ├── authController.js
 │   │   ├── employeeController.js
-│   │   ├── taskController.js
-│   │   └── dashboardController.js
+│   │   ├── dashboardController.js
+│   │   └── taskController.js
 │   ├── middleware/
 │   │   └── authMiddleware.js
 │   ├── models/
-│   │   ├── User.js
 │   │   ├── Employee.js
-│   │   └── Task.js
+│   │   ├── Task.js
+│   │   └── User.js
 │   ├── routes/
 │   │   ├── authRoutes.js
+│   │   ├── dashboardRoutes.js
 │   │   ├── employeeRoutes.js
-│   │   ├── taskRoutes.js
-│   │   └── dashboardRoutes.js
+│   │   └── taskRoutes.js
 │   ├── .env
 │   ├── server.js
 │   └── package.json
