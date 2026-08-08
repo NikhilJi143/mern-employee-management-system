@@ -1,0 +1,119 @@
+/* =====================================================
+                    EMPTY STATE
+===================================================== */
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 60px 20px;
+
+  background: #fff;
+
+  border: 2px dashed #dbeafe;
+
+  border-radius: 16px;
+
+  text-align: center;
+
+  margin-top: 20px;
+
+  width: 100%;
+}
+
+/* =====================================================
+                    EMPTY ICON
+===================================================== */
+
+.empty-icon {
+  font-size: 60px;
+
+  margin-bottom: 15px;
+
+  line-height: 1;
+}
+
+/* =====================================================
+                    TITLE
+===================================================== */
+
+.empty-state h3 {
+  margin: 0 0 10px;
+
+  color: #1e293b;
+
+  font-size: 22px;
+  font-weight: 600;
+}
+
+/* =====================================================
+                    DESCRIPTION
+===================================================== */
+
+.empty-state p {
+  margin: 0;
+
+  color: #64748b;
+
+  max-width: 350px;
+
+  line-height: 1.6;
+
+  font-size: 15px;
+}
+
+/* =====================================================
+                    MOBILE
+===================================================== */
+
+@media (max-width: 768px) {
+  .empty-state {
+    padding: 50px 18px;
+
+    border-radius: 14px;
+  }
+
+  .empty-icon {
+    font-size: 52px;
+
+    margin-bottom: 13px;
+  }
+
+  .empty-state h3 {
+    font-size: 20px;
+  }
+
+  .empty-state p {
+    font-size: 14px;
+
+    max-width: 320px;
+  }
+}
+
+/* =====================================================
+                  SMALL MOBILE
+===================================================== */
+
+@media (max-width: 480px) {
+  .empty-state {
+    padding: 40px 15px;
+
+    margin-top: 15px;
+  }
+
+  .empty-icon {
+    font-size: 46px;
+  }
+
+  .empty-state h3 {
+    font-size: 19px;
+  }
+
+  .empty-state p {
+    font-size: 13px;
+
+    max-width: 280px;
+  }
+}

@@ -1,0 +1,652 @@
+/* =====================================================
+                EMPLOYEES PAGE
+===================================================== */
+
+.page-header {
+  margin-bottom: 25px;
+}
+
+.page-header h1 {
+  font-size: 30px;
+  color: #1e293b;
+  margin-bottom: 5px;
+}
+
+.page-header p {
+  color: #64748b;
+  font-size: 15px;
+}
+
+
+/* =====================================================
+                TOOLBAR
+===================================================== */
+
+.employee-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+}
+
+
+.add-employee-btn {
+  background: #4f46e5;
+  color: white;
+  border: none;
+
+  /* Fixed 162px horizontal padding removed */
+  padding: 12px 22px;
+
+  border-radius: 10px;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: 0.3s;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  white-space: nowrap;
+}
+
+.add-employee-btn:hover {
+  background: #4338ca;
+}
+
+
+/* ==========================================
+            SEARCH BAR
+========================================== */
+
+.search-bar {
+  flex: 1;
+  width: 100%;
+  max-width: 420px;
+  position: relative;
+}
+
+.search-bar input {
+  width: 100%;
+  height: 48px;
+
+  padding: 0 18px 0 48px;
+
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+
+  outline: none;
+  background: white;
+
+  font-size: 15px;
+
+  transition: all 0.3s ease;
+}
+
+.search-bar input::placeholder {
+  color: #9ca3af;
+}
+
+.search-bar input:focus {
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.12);
+}
+
+.search-icon {
+  position: absolute;
+
+  left: 16px;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  color: #6b7280;
+  font-size: 15px;
+
+  pointer-events: none;
+}
+
+
+/* =====================================================
+                EMPLOYEE FORM
+===================================================== */
+
+.employee-form {
+  background: white;
+
+  padding: 25px;
+
+  border-radius: 16px;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+
+  margin-bottom: 25px;
+}
+
+.form-title {
+  font-size: 22px;
+
+  margin-bottom: 22px;
+
+  color: #1e293b;
+}
+
+.form-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 18px;
+}
+
+.form-grid input,
+.form-grid select {
+  width: 100%;
+
+  padding: 12px 15px;
+
+  border: 1px solid #d1d5db;
+
+  border-radius: 10px;
+
+  outline: none;
+
+  font-size: 15px;
+
+  transition: 0.3s;
+
+  background: white;
+}
+
+.form-grid input:focus,
+.form-grid select:focus {
+  border-color: #4f46e5;
+
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+}
+
+.form-buttons {
+  margin-top: 25px;
+
+  display: flex;
+
+  gap: 15px;
+}
+
+.save-btn,
+.cancel-btn {
+  border: none;
+
+  padding: 12px 24px;
+
+  border-radius: 10px;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.save-btn {
+  background: #4f46e5;
+  color: white;
+}
+
+.save-btn:hover {
+  background: #4338ca;
+}
+
+.cancel-btn {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+.cancel-btn:hover {
+  background: #d1d5db;
+}
+
+
+/* =====================================================
+                TABLE
+===================================================== */
+
+.table-container {
+  width: 100%;
+
+  background: white;
+
+  border-radius: 16px;
+
+  overflow-x: auto;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.employee-table {
+  width: 100%;
+
+  /* Prevent table from becoming unreadably small */
+  min-width: 750px;
+
+  border-collapse: collapse;
+}
+
+.employee-table thead {
+  background: #4f46e5;
+}
+
+.employee-table th {
+  color: white;
+
+  padding: 16px;
+
+  text-align: left;
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  white-space: nowrap;
+}
+
+.employee-table td {
+  padding: 16px;
+
+  border-bottom: 1px solid #f1f5f9;
+
+  white-space: nowrap;
+}
+
+.employee-table tbody tr {
+  transition: 0.3s;
+}
+
+.employee-table tbody tr:hover {
+  background: #f8fafc;
+}
+
+.employee-table tbody tr:hover .employee-avatar {
+  transform: scale(1.08);
+}
+
+.employee-avatar {
+  transition: 0.3s;
+}
+
+
+/* =====================================================
+                EMPLOYEE INFO
+===================================================== */
+
+.employee-info {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+}
+
+.employee-avatar {
+  width: 42px;
+  height: 42px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: linear-gradient(135deg, #4f46e5, #6366f1);
+
+  color: white;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  font-weight: bold;
+}
+
+
+/* =====================================================
+                DEPARTMENT
+===================================================== */
+
+.department-badge {
+  background: #eef2ff;
+
+  color: #4f46e5;
+
+  padding: 6px 14px;
+
+  border-radius: 20px;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  white-space: nowrap;
+}
+
+.department-badge.it {
+  background: #dbeafe;
+  color: #2563eb;
+}
+
+.department-badge.hr {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.department-badge.finance {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.department-badge.marketing {
+  background: #fce7f3;
+  color: #be185d;
+}
+
+.department-badge.sales {
+  background: #ede9fe;
+  color: #6d28d9;
+}
+
+.salary-cell {
+  font-weight: 600;
+
+  color: #16a34a;
+}
+
+
+/* =====================================================
+                ACTION BUTTONS
+===================================================== */
+
+.action-buttons {
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 10px;
+}
+
+.edit-btn,
+.delete-btn {
+  width: 38px;
+  height: 38px;
+
+  flex-shrink: 0;
+
+  border: none;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.edit-btn {
+  background: #dbeafe;
+
+  color: #2563eb;
+}
+
+.edit-btn:hover {
+  background: #2563eb;
+
+  color: white;
+}
+
+.delete-btn {
+  background: #fee2e2;
+
+  color: #dc2626;
+}
+
+.delete-btn:hover {
+  background: #dc2626;
+
+  color: white;
+}
+
+
+/* =====================================================
+                EMPTY DATA
+===================================================== */
+
+.no-data {
+  text-align: center;
+
+  padding: 35px;
+
+  color: #64748b;
+
+  font-size: 15px;
+}
+
+
+/* =====================================================
+                PAGINATION
+===================================================== */
+
+.pagination {
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  flex-wrap: wrap;
+
+  gap: 12px;
+
+  margin-top: 25px;
+}
+
+.pagination button {
+  border: none;
+
+  background: white;
+
+  padding: 10px 18px;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+
+  transition: 0.3s;
+}
+
+.pagination button:hover {
+  background: #4f46e5;
+
+  color: white;
+}
+
+.pagination button.active {
+  background: #4f46e5;
+
+  color: white;
+}
+
+
+/* =====================================================
+                TABLET
+===================================================== */
+
+@media (max-width: 992px) {
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .employee-toolbar {
+    align-items: stretch;
+  }
+
+  .search-bar {
+    max-width: 100%;
+  }
+
+  .add-employee-btn {
+    flex-shrink: 0;
+  }
+}
+
+
+/* =====================================================
+                MOBILE
+===================================================== */
+
+@media (max-width: 768px) {
+
+  .page-header h1 {
+    font-size: 27px;
+  }
+
+  .page-header p {
+    font-size: 14px;
+  }
+
+
+  /* Toolbar */
+
+  .employee-toolbar {
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 12px;
+  }
+
+  .search-bar {
+    max-width: 100%;
+  }
+
+  .add-employee-btn {
+    width: 100%;
+  }
+
+
+  /* Form */
+
+  .employee-form {
+    padding: 20px;
+  }
+
+  .form-buttons {
+    flex-direction: column;
+  }
+
+  .save-btn,
+  .cancel-btn {
+    width: 100%;
+  }
+
+
+  /* Table */
+
+  .table-container {
+    border-radius: 12px;
+  }
+
+  .employee-table th,
+  .employee-table td {
+    padding: 12px;
+
+    font-size: 14px;
+  }
+
+  .employee-avatar {
+    width: 36px;
+    height: 36px;
+
+    font-size: 14px;
+  }
+}
+
+
+/* =====================================================
+                SMALL MOBILE
+===================================================== */
+
+@media (max-width: 480px) {
+
+  .page-header {
+    margin-bottom: 20px;
+  }
+
+  .page-header h1 {
+    font-size: 24px;
+  }
+
+
+  .employee-form {
+    padding: 17px;
+  }
+
+  .form-title {
+    font-size: 20px;
+  }
+
+
+  .form-grid input,
+  .form-grid select {
+    font-size: 14px;
+  }
+
+
+  .employee-table {
+    /*
+      Table remains readable on very small screens.
+      User can horizontally scroll.
+    */
+    min-width: 700px;
+  }
+
+
+  .employee-table th,
+  .employee-table td {
+    padding: 11px;
+    font-size: 13px;
+  }
+
+
+  .action-buttons {
+    gap: 7px;
+  }
+
+  .edit-btn,
+  .delete-btn {
+    width: 35px;
+    height: 35px;
+  }
+
+
+  .pagination {
+    gap: 8px;
+  }
+
+  .pagination button {
+    padding: 9px 14px;
+  }
+}

@@ -1,0 +1,239 @@
+/* =====================================================
+                NOT FOUND PAGE
+===================================================== */
+
+.notfound-container {
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  padding: 30px 20px;
+
+  background: #f8fafc;
+
+  text-align: center;
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+/* =====================================================
+                DECORATIVE BACKGROUND
+===================================================== */
+
+.notfound-container::before {
+  content: "";
+
+  position: absolute;
+
+  width: 320px;
+  height: 320px;
+
+  border-radius: 50%;
+
+  background: rgba(79, 70, 229, 0.08);
+
+  top: -150px;
+  left: -120px;
+}
+
+.notfound-container::after {
+  content: "";
+
+  position: absolute;
+
+  width: 280px;
+  height: 280px;
+
+  border-radius: 50%;
+
+  background: rgba(99, 102, 241, 0.07);
+
+  right: -120px;
+  bottom: -130px;
+}
+
+/* =====================================================
+                    404
+===================================================== */
+
+.notfound-container h1 {
+  position: relative;
+  z-index: 1;
+
+  margin: 0 0 5px;
+
+  font-size: 110px;
+
+  font-weight: 800;
+
+  line-height: 1;
+
+  letter-spacing: -5px;
+
+  background: linear-gradient(135deg, #4f46e5, #818cf8);
+
+  -webkit-text-fill-color: transparent;
+
+  text-shadow: 0 10px 30px rgba(79, 70, 229, 0.12);
+}
+
+/* =====================================================
+                    TITLE
+===================================================== */
+
+.notfound-container h2 {
+  position: relative;
+  z-index: 1;
+
+  margin: 10px 0 8px;
+
+  color: #1e293b;
+
+  font-size: 30px;
+
+  font-weight: 700;
+}
+
+/* =====================================================
+                    MESSAGE
+===================================================== */
+
+.notfound-container p {
+  position: relative;
+  z-index: 1;
+
+  max-width: 450px;
+
+  margin: 8px 0 25px;
+
+  color: #64748b;
+
+  font-size: 15px;
+
+  line-height: 1.6;
+}
+
+/* =====================================================
+                    HOME BUTTON
+===================================================== */
+
+.notfound-container a {
+  position: relative;
+  z-index: 1;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 12px 25px;
+
+  border-radius: 10px;
+
+  background: linear-gradient(135deg, #4f46e5, #6366f1);
+
+  color: white;
+
+  text-decoration: none;
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  box-shadow: 0 8px 20px rgba(79, 70, 229, 0.25);
+
+  transition: all 0.3s ease;
+}
+
+.notfound-container a:hover {
+  transform: translateY(-3px);
+
+  box-shadow: 0 12px 25px rgba(79, 70, 229, 0.35);
+
+  background: linear-gradient(135deg, #4338ca, #4f46e5);
+}
+
+.notfound-container a:active {
+  transform: scale(0.97);
+}
+
+/* =====================================================
+                    TABLET
+===================================================== */
+
+@media (max-width: 768px) {
+  .notfound-container {
+    padding: 25px 20px;
+  }
+
+  .notfound-container h1 {
+    font-size: 90px;
+  }
+
+  .notfound-container h2 {
+    font-size: 26px;
+  }
+
+  .notfound-container p {
+    font-size: 14px;
+    max-width: 400px;
+  }
+}
+
+/* =====================================================
+                SMALL MOBILE
+===================================================== */
+
+@media (max-width: 480px) {
+  .notfound-container {
+    padding: 20px 18px;
+  }
+
+  .notfound-container h1 {
+    font-size: 72px;
+
+    letter-spacing: -3px;
+  }
+
+  .notfound-container h2 {
+    font-size: 23px;
+  }
+
+  .notfound-container p {
+    font-size: 14px;
+
+    max-width: 320px;
+
+    margin-bottom: 22px;
+  }
+
+  .notfound-container a {
+    width: 100%;
+
+    max-width: 220px;
+
+    padding: 11px 20px;
+  }
+
+  .notfound-container::before {
+    width: 220px;
+    height: 220px;
+
+    top: -110px;
+    left: -100px;
+  }
+
+  .notfound-container::after {
+    width: 200px;
+    height: 200px;
+
+    right: -100px;
+    bottom: -100px;
+  }
+}

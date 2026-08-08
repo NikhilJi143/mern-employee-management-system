@@ -1,0 +1,287 @@
+/* =====================================================
+                    SIDEBAR
+===================================================== */
+
+.sidebar {
+  position: fixed;
+
+  top: 72px;
+  left: 0;
+
+  width: 250px;
+  height: calc(100vh - 72px);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  padding: 20px 12px;
+
+  background: #171f32;
+
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+
+  box-shadow: 6px 0 20px rgba(15, 23, 42, 0.12);
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  z-index: 1100;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+/* =====================================================
+                    SIDEBAR SCROLLBAR
+===================================================== */
+
+.sidebar::-webkit-scrollbar {
+  width: 5px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: rgba(129, 140, 248, 0.35);
+
+  border-radius: 10px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background: rgba(129, 140, 248, 0.6);
+}
+
+
+/* =====================================================
+                    MENU
+===================================================== */
+
+.sidebar ul {
+  list-style: none;
+
+  padding: 0;
+  margin: 0;
+}
+
+
+/* =====================================================
+                    MENU ITEM
+===================================================== */
+
+.sidebar li {
+  margin: 6px 0;
+}
+
+
+/* =====================================================
+                    MENU LINK
+===================================================== */
+
+.sidebar a {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+
+  width: 100%;
+
+  padding: 13px 16px;
+
+  border-radius: 12px;
+
+  color: #aeb8ca;
+
+  text-decoration: none;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+/* =====================================================
+                    ICON
+===================================================== */
+
+.sidebar a svg {
+  width: 19px;
+
+  font-size: 18px;
+
+  color: #8995aa;
+
+  flex-shrink: 0;
+
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+
+/* =====================================================
+                    HOVER
+===================================================== */
+
+.sidebar a:hover {
+  background: rgba(99, 102, 241, 0.10);
+
+  color: #f8fafc;
+
+  transform: translateX(4px);
+}
+
+.sidebar a:hover svg {
+  color: #a5b4fc;
+
+  transform: scale(1.08);
+}
+
+
+/* =====================================================
+                    ACTIVE MENU
+===================================================== */
+
+.sidebar a.active {
+  background: linear-gradient(
+    135deg,
+    #4f46e5,
+    #6366f1
+  );
+
+  color: white;
+
+  box-shadow:
+    0 8px 20px rgba(79, 70, 229, 0.28);
+
+  font-weight: 600;
+}
+
+
+/* Active icon */
+
+.sidebar a.active svg {
+  color: white;
+}
+
+
+/* =====================================================
+                ACTIVE LEFT INDICATOR
+===================================================== */
+
+.sidebar a.active::before {
+  content: "";
+
+  position: absolute;
+
+  left: -12px;
+  top: 50%;
+
+  width: 4px;
+  height: 24px;
+
+  border-radius: 0 6px 6px 0;
+
+  background: #a5b4fc;
+
+  transform: translateY(-50%);
+
+  box-shadow: 0 0 10px rgba(165, 180, 252, 0.5);
+}
+
+
+/* =====================================================
+                    ACTIVE HOVER
+===================================================== */
+
+.sidebar a.active:hover {
+  transform: translateX(3px);
+
+  background: linear-gradient(
+    135deg,
+    #4338ca,
+    #5b5ff0
+  );
+}
+
+
+/* =====================================================
+                    MOBILE
+===================================================== */
+
+@media (max-width: 768px) {
+  .sidebar {
+    top: 68px;
+
+    width: 250px;
+
+    height: calc(100vh - 68px);
+
+    padding: 18px 12px;
+
+    transform: translateX(-105%);
+
+    box-shadow: none;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+
+    box-shadow:
+      10px 0 30px rgba(15, 23, 42, 0.25);
+  }
+
+  .sidebar a {
+    padding: 13px 15px;
+
+    font-size: 14px;
+  }
+
+  .sidebar a:hover {
+    transform: translateX(3px);
+  }
+
+  .sidebar a.active::before {
+    left: -12px;
+  }
+}
+
+
+/* =====================================================
+                SMALL MOBILE
+===================================================== */
+
+@media (max-width: 480px) {
+  .sidebar {
+    width: 235px;
+
+    padding: 16px 10px;
+  }
+
+  .sidebar li {
+    margin: 5px 0;
+  }
+
+  .sidebar a {
+    gap: 13px;
+
+    padding: 12px 14px;
+
+    font-size: 13px;
+  }
+
+  .sidebar a svg {
+    font-size: 17px;
+  }
+}
