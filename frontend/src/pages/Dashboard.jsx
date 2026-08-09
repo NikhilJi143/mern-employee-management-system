@@ -39,8 +39,6 @@ const Dashboard = () => {
   }, []);
   const { stats, recentEmployees, recentTasks } = dashboardData;
 
-  console.log("Recent Employees:", recentEmployees);
-  console.log("Recent Tasks:", recentTasks);
 
   if (loading) {
     return (

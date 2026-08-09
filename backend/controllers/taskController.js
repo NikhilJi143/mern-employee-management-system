@@ -4,7 +4,7 @@ import Employee from "../models/Employee.js";
 // ---------------- ADD TASK ------------------ //
 export const addTask = async (req, res) => {
   try {
-    const { title, description, assignedTo ,status} = req.body;
+    const { title, description, assignedTo, status } = req.body;
     if (!title?.trim() || !description?.trim() || !assignedTo) {
       return res.status(400).json({
         success: false,
@@ -109,6 +109,46 @@ export const deleteTask = async (req, res) => {
     res.status(200).json({
       success: true,
       message: "Task Deleted Successfully",
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
+// ------------------ PAGINATION TASK ------------------ //
+export const getTasksPagination = async (req, res) => {
+  try {
+    const page = Number(req.query.page) || 1;
+    const limit = Number(req.query.limit) || 4;
+    const status = req.query.status || "All";
+
+    const skip = (page - 1) * limit;
+
+    const searchQuery =
+      status !== "All"
+        ? {
+            status,
+          }
+        : {};
+
+    const totalTasks = await Task.countDocuments(searchQuery);
+
+    const tasks = await Task.find(searchQuery)
+      .populate("assignedTo", "name email")
+      .populate("createdBy", "name email")
+      .skip(skip)
+      .limit(limit)
+      .sort({ createdAt: -1 });
+
+    res.status(200).json({
+      success: true,
+      currentPage: page,
+      totalPages: Math.ceil(totalTasks / limit),
+      totalTasks,
+      tasks,
     });
   } catch (error) {
     res.status(500).json({

@@ -1,25 +1,29 @@
 /* =====================================================
-                EMPLOYEES PAGE
+   PAGE HEADER
 ===================================================== */
 
 .page-header {
-  margin-bottom: 25px;
+  width: 100%;
+  margin-bottom: 20px;
 }
 
 .page-header h1 {
-  font-size: 30px;
+  margin: 0 0 6px;
   color: #1e293b;
-  margin-bottom: 5px;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.2;
 }
 
 .page-header p {
+  margin: 0;
   color: #64748b;
   font-size: 15px;
+  line-height: 1.5;
 }
 
-
 /* =====================================================
-                TOOLBAR
+   TOOLBAR
 ===================================================== */
 
 .employee-toolbar {
@@ -31,13 +35,10 @@
   flex-wrap: wrap;
 }
 
-
 .add-employee-btn {
-  background: #4f46e5;
+  background: linear-gradient(135deg, #4f46e5, #6366f1);
   color: white;
-  border: none;
 
-  /* Fixed 162px horizontal padding removed */
   padding: 12px 22px;
 
   border-radius: 10px;
@@ -45,31 +46,34 @@
   font-size: 15px;
   font-weight: 600;
 
-  cursor: pointer;
-  transition: 0.3s;
-
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
 
   white-space: nowrap;
+
+  box-shadow: 0 6px 15px rgba(79, 70, 229, 0.2);
+
+  transition: all 0.3s ease;
 }
 
 .add-employee-btn:hover {
-  background: #4338ca;
+  background: linear-gradient(135deg, #4338ca, #4f46e5);
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3);
 }
 
-
-/* ==========================================
-            SEARCH BAR
-========================================== */
+/* =====================================================
+   SEARCH BAR
+===================================================== */
 
 .search-bar {
-  flex: 1;
+  position: relative;
   width: 100%;
   max-width: 420px;
-  position: relative;
 }
 
 .search-bar input {
@@ -78,11 +82,10 @@
 
   padding: 0 18px 0 48px;
 
-  border: 1px solid #d1d5db;
+  border: 1px solid #dbe1ea;
   border-radius: 12px;
 
-  outline: none;
-  background: white;
+  background: #ffffff;
 
   font-size: 15px;
 
@@ -94,8 +97,9 @@
 }
 
 .search-bar input:focus {
-  border-color: #4f46e5;
-  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.12);
+  border-color: #6366f1;
+
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.12);
 }
 
 .search-icon {
@@ -106,25 +110,27 @@
 
   transform: translateY(-50%);
 
-  color: #6b7280;
+  color: #64748b;
+
   font-size: 15px;
 
   pointer-events: none;
 }
 
-
 /* =====================================================
-                EMPLOYEE FORM
+   EMPLOYEE FORM
 ===================================================== */
 
 .employee-form {
-  background: white;
+  width: 100%;
+
+  background: #ffffff;
 
   padding: 25px;
 
   border-radius: 16px;
 
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 25px rgba(15, 23, 42, 0.08);
 
   margin-bottom: 25px;
 }
@@ -132,7 +138,9 @@
 .form-title {
   font-size: 22px;
 
-  margin-bottom: 22px;
+  font-weight: 700;
+
+  padding-bottom: 10px;
 
   color: #1e293b;
 }
@@ -149,26 +157,24 @@
 .form-grid select {
   width: 100%;
 
+  min-width: 0;
+
   padding: 12px 15px;
 
   border: 1px solid #d1d5db;
 
   border-radius: 10px;
 
-  outline: none;
+  background: #ffffff;
 
   font-size: 15px;
-
-  transition: 0.3s;
-
-  background: white;
 }
 
 .form-grid input:focus,
 .form-grid select:focus {
-  border-color: #4f46e5;
+  border-color: #6366f1;
 
-  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.12);
 }
 
 .form-buttons {
@@ -176,114 +182,157 @@
 
   display: flex;
 
-  gap: 15px;
+  gap: 12px;
 }
 
 .save-btn,
 .cancel-btn {
-  border: none;
-
   padding: 12px 24px;
 
   border-radius: 10px;
 
   font-size: 15px;
+
   font-weight: 600;
-
-  cursor: pointer;
-
-  transition: 0.3s;
 }
 
 .save-btn {
-  background: #4f46e5;
+  background: linear-gradient(135deg, #4f46e5, #6366f1);
   color: white;
 }
 
 .save-btn:hover {
-  background: #4338ca;
+  transform: translateY(-2px);
+
+  box-shadow: 0 7px 18px rgba(79, 70, 229, 0.25);
 }
 
 .cancel-btn {
-  background: #e5e7eb;
+  background: #f1f5f9;
+
   color: #374151;
 }
 
 .cancel-btn:hover {
-  background: #d1d5db;
+  background: #e2e8f0;
 }
 
-
 /* =====================================================
-                TABLE
+   TABLE WRAPPER
 ===================================================== */
 
 .table-container {
   width: 100%;
+  background: #ffffff;
 
-  background: white;
-
+  border: 1px solid #e5e7eb;
   border-radius: 16px;
 
   overflow-x: auto;
+  overflow-y: visible;
 
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 25px rgba(15, 23, 42, 0.07);
+
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
 }
+
+/* =====================================================
+   EMPLOYEE TABLE
+===================================================== */
 
 .employee-table {
   width: 100%;
 
-  /* Prevent table from becoming unreadably small */
-  min-width: 750px;
+  min-width: 850px;
 
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
+
+  table-layout: auto;
 }
 
+/* =====================================================
+   TABLE HEADER
+===================================================== */
+
 .employee-table thead {
-  background: #4f46e5;
+  background: linear-gradient(135deg, #4f46e5, #6366f1);
 }
 
 .employee-table th {
-  color: white;
+  padding: 14px 18px;
 
-  padding: 16px;
+  color: #ffffff;
 
   text-align: left;
 
-  font-size: 15px;
-
+  font-size: 13px;
   font-weight: 600;
 
-  white-space: nowrap;
-}
-
-.employee-table td {
-  padding: 16px;
-
-  border-bottom: 1px solid #f1f5f9;
+  letter-spacing: 0.3px;
 
   white-space: nowrap;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-.employee-table tbody tr {
-  transition: 0.3s;
+/* First header corner */
+
+.employee-table th:first-child {
+  border-top-left-radius: 14px;
 }
 
-.employee-table tbody tr:hover {
-  background: #f8fafc;
-}
+/* Last header corner */
 
-.employee-table tbody tr:hover .employee-avatar {
-  transform: scale(1.08);
+.employee-table th:last-child {
+  border-top-right-radius: 14px;
 }
-
-.employee-avatar {
-  transition: 0.3s;
-}
-
 
 /* =====================================================
-                EMPLOYEE INFO
+   TABLE BODY
+===================================================== */
+
+.employee-table td {
+  padding: 13px 18px;
+
+  border-bottom: 1px solid #eef2f7;
+
+  white-space: nowrap;
+
+  font-size: 14px;
+
+  color: #334155;
+
+  vertical-align: middle;
+}
+
+/* =====================================================
+   TABLE ROW
+===================================================== */
+
+.employee-table tbody tr {
+  background: #ffffff;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+/* Hover */
+
+.employee-table tbody tr:hover {
+  background: #f8faff;
+}
+
+/* Last row */
+
+.employee-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* =====================================================
+   EMPLOYEE INFO
 ===================================================== */
 
 .employee-info {
@@ -293,6 +342,10 @@
 
   gap: 12px;
 }
+
+/* =====================================================
+   EMPLOYEE AVATAR
+===================================================== */
 
 .employee-avatar {
   width: 42px;
@@ -304,71 +357,152 @@
 
   background: linear-gradient(135deg, #4f46e5, #6366f1);
 
-  color: white;
+  color: #ffffff;
 
   display: flex;
 
   justify-content: center;
   align-items: center;
 
-  font-weight: bold;
+  font-size: 14px;
+
+  font-weight: 700;
+
+  box-shadow: 0 4px 10px rgba(79, 70, 229, 0.22);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
+/* Avatar hover */
+
+.employee-table tbody tr:hover .employee-avatar {
+  transform: scale(1.08);
+
+  box-shadow: 0 6px 14px rgba(79, 70, 229, 0.3);
+}
 
 /* =====================================================
-                DEPARTMENT
+   EMPLOYEE NAME
+===================================================== */
+
+.employee-info strong {
+  display: block;
+
+  color: #1e293b;
+
+  font-size: 14px;
+
+  font-weight: 600;
+}
+
+/* =====================================================
+   EMPLOYEE EMAIL
+===================================================== */
+
+.employee-info small {
+  display: block;
+
+  margin-top: 3px;
+
+  color: #94a3b8;
+
+  font-size: 12px;
+}
+
+/* =====================================================
+   DEPARTMENT BADGE
 ===================================================== */
 
 .department-badge {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 6px 12px;
+
+  border-radius: 999px;
+
   background: #eef2ff;
 
   color: #4f46e5;
 
-  padding: 6px 14px;
-
-  border-radius: 20px;
-
-  font-size: 13px;
+  font-size: 12px;
 
   font-weight: 600;
 
   white-space: nowrap;
+
+  border: 1px solid #e0e7ff;
 }
+
+/* IT */
 
 .department-badge.it {
-  background: #dbeafe;
+  background: #eff6ff;
+
   color: #2563eb;
+
+  border-color: #dbeafe;
 }
+
+/* HR */
 
 .department-badge.hr {
-  background: #dcfce7;
+  background: #f0fdf4;
+
   color: #15803d;
+
+  border-color: #dcfce7;
 }
+
+/* Finance */
 
 .department-badge.finance {
-  background: #fef3c7;
+  background: #fffbeb;
+
   color: #b45309;
+
+  border-color: #fef3c7;
 }
+
+/* Marketing */
 
 .department-badge.marketing {
-  background: #fce7f3;
+  background: #fdf2f8;
+
   color: #be185d;
+
+  border-color: #fce7f3;
 }
+
+/* Sales */
 
 .department-badge.sales {
-  background: #ede9fe;
+  background: #f5f3ff;
+
   color: #6d28d9;
+
+  border-color: #ede9fe;
 }
-
-.salary-cell {
-  font-weight: 600;
-
-  color: #16a34a;
-}
-
 
 /* =====================================================
-                ACTION BUTTONS
+   SALARY
+===================================================== */
+
+.salary-cell {
+  color: #16a34a !important;
+
+  font-size: 14px;
+
+  font-weight: 700;
+}
+
+/* =====================================================
+   ACTION BUTTONS
 ===================================================== */
 
 .action-buttons {
@@ -378,123 +512,210 @@
 
   align-items: center;
 
-  gap: 10px;
+  gap: 8px;
 }
+
+/* =====================================================
+   EDIT / DELETE BUTTON
+===================================================== */
 
 .edit-btn,
 .delete-btn {
-  width: 38px;
-  height: 38px;
+  width: 36px;
+  height: 36px;
 
   flex-shrink: 0;
 
   border: none;
 
-  border-radius: 8px;
-
-  cursor: pointer;
-
-  transition: 0.3s;
+  border-radius: 9px;
 
   display: flex;
 
   justify-content: center;
   align-items: center;
+
+  font-size: 14px;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
+/* =====================================================
+   EDIT BUTTON
+===================================================== */
+
 .edit-btn {
-  background: #dbeafe;
+  background: #eff6ff;
 
   color: #2563eb;
+
+  border: 1px solid #dbeafe;
 }
 
 .edit-btn:hover {
   background: #2563eb;
 
-  color: white;
+  color: #ffffff;
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 5px 12px rgba(37, 99, 235, 0.25);
 }
 
+/* =====================================================
+   DELETE BUTTON
+===================================================== */
+
 .delete-btn {
-  background: #fee2e2;
+  background: #fef2f2;
 
   color: #dc2626;
+
+  border: 1px solid #fee2e2;
 }
 
 .delete-btn:hover {
   background: #dc2626;
 
-  color: white;
+  color: #ffffff;
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 5px 12px rgba(220, 38, 38, 0.25);
 }
 
+/* =====================================================
+   ACTIVE BUTTON
+===================================================== */
+
+.edit-btn:active,
+.delete-btn:active {
+  transform: scale(0.94);
+}
 
 /* =====================================================
-                EMPTY DATA
+   TABLE SCROLLBAR
+===================================================== */
+
+.table-container::-webkit-scrollbar {
+  height: 7px;
+}
+
+.table-container::-webkit-scrollbar-track {
+  background: #f1f5f9;
+
+  border-radius: 10px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+  background: #c7d2fe;
+
+  border-radius: 10px;
+}
+
+.table-container::-webkit-scrollbar-thumb:hover {
+  background: #818cf8;
+}
+
+/* =====================================================
+   MOBILE TABLE
+===================================================== */
+
+@media (max-width: 768px) {
+  .table-container {
+    border-radius: 12px;
+  }
+
+  .employee-table {
+    min-width: 800px;
+  }
+
+  .employee-table th {
+    padding: 12px 14px;
+
+    font-size: 12px;
+  }
+
+  .employee-table td {
+    padding: 11px 14px;
+
+    font-size: 13px;
+  }
+
+  .employee-avatar {
+    width: 38px;
+    height: 38px;
+
+    font-size: 13px;
+  }
+
+  .edit-btn,
+  .delete-btn {
+    width: 34px;
+    height: 34px;
+
+    font-size: 13px;
+  }
+}
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 480px) {
+  .employee-table {
+    min-width: 780px;
+  }
+
+  .employee-table th {
+    padding: 11px 12px;
+
+    font-size: 11px;
+  }
+
+  .employee-table td {
+    padding: 10px 12px;
+
+    font-size: 12px;
+  }
+
+  .employee-avatar {
+    width: 36px;
+    height: 36px;
+  }
+
+  .department-badge {
+    padding: 5px 10px;
+
+    font-size: 11px;
+  }
+}
+
+/* =====================================================
+   EMPTY DATA
 ===================================================== */
 
 .no-data {
   text-align: center;
 
-  padding: 35px;
+  padding: 45px 20px;
 
   color: #64748b;
 
   font-size: 15px;
 }
 
-
 /* =====================================================
-                PAGINATION
-===================================================== */
-
-.pagination {
-  display: flex;
-
-  justify-content: center;
-
-  align-items: center;
-
-  flex-wrap: wrap;
-
-  gap: 12px;
-
-  margin-top: 25px;
-}
-
-.pagination button {
-  border: none;
-
-  background: white;
-
-  padding: 10px 18px;
-
-  border-radius: 8px;
-
-  cursor: pointer;
-
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
-
-  transition: 0.3s;
-}
-
-.pagination button:hover {
-  background: #4f46e5;
-
-  color: white;
-}
-
-.pagination button.active {
-  background: #4f46e5;
-
-  color: white;
-}
-
-
-/* =====================================================
-                TABLET
+   TABLET
 ===================================================== */
 
 @media (max-width: 992px) {
-
   .form-grid {
     grid-template-columns: 1fr;
   }
@@ -512,21 +733,22 @@
   }
 }
 
-
 /* =====================================================
-                MOBILE
+   MOBILE
 ===================================================== */
 
 @media (max-width: 768px) {
+  .page-header {
+    margin-bottom: 16px;
+  }
 
   .page-header h1 {
-    font-size: 27px;
+    font-size: 26px;
   }
 
   .page-header p {
     font-size: 14px;
   }
-
 
   /* Toolbar */
 
@@ -546,7 +768,6 @@
     width: 100%;
   }
 
-
   /* Form */
 
   .employee-form {
@@ -562,18 +783,21 @@
     width: 100%;
   }
 
-
   /* Table */
 
   .table-container {
     border-radius: 12px;
   }
 
+  .employee-table {
+    min-width: 800px;
+  }
+
   .employee-table th,
   .employee-table td {
-    padding: 12px;
+    padding: 13px;
 
-    font-size: 14px;
+    font-size: 13px;
   }
 
   .employee-avatar {
@@ -584,21 +808,22 @@
   }
 }
 
-
 /* =====================================================
-                SMALL MOBILE
+   SMALL MOBILE
 ===================================================== */
 
 @media (max-width: 480px) {
-
   .page-header {
-    margin-bottom: 20px;
+    margin-bottom: 14px;
   }
 
   .page-header h1 {
-    font-size: 24px;
+    font-size: 23px;
   }
 
+  .page-header p {
+    font-size: 13px;
+  }
 
   .employee-form {
     padding: 17px;
@@ -608,28 +833,26 @@
     font-size: 20px;
   }
 
-
   .form-grid input,
   .form-grid select {
     font-size: 14px;
   }
 
+  /*
+    Horizontal scroll is intentional.
+    It keeps the table readable on small screens.
+  */
 
   .employee-table {
-    /*
-      Table remains readable on very small screens.
-      User can horizontally scroll.
-    */
-    min-width: 700px;
+    min-width: 780px;
   }
-
 
   .employee-table th,
   .employee-table td {
     padding: 11px;
+
     font-size: 13px;
   }
-
 
   .action-buttons {
     gap: 7px;
@@ -639,14 +862,5 @@
   .delete-btn {
     width: 35px;
     height: 35px;
-  }
-
-
-  .pagination {
-    gap: 8px;
-  }
-
-  .pagination button {
-    padding: 9px 14px;
   }
 }

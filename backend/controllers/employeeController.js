@@ -162,10 +162,24 @@ export const searchEmployee = async (req, res) => {
 export const getEmployeesPagination = async (req, res) => {
   try {
     const page = Number(req.query.page) || 1;
-    const limit = Number(req.query.limit) || 5;
+    const limit = Number(req.query.limit) || 4;
+    const keyword = req.query.keyword || "";
+
     const skip = (page - 1) * limit;
-    const totalEmployees = await Employee.countDocuments();
-    const employees = await Employee.find()
+
+    const searchQuery = keyword
+      ? {
+          name: {
+            $regex: keyword,
+            $options: "i",
+          },
+        }
+      : {};
+
+    const totalEmployees = await Employee.countDocuments(searchQuery);
+
+    const employees = await Employee.find(searchQuery)
+      .populate("createdBy", "name email")
       .skip(skip)
       .limit(limit)
       .sort({ createdAt: -1 });

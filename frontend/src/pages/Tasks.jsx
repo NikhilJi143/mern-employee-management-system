@@ -9,6 +9,7 @@ import api from "../services/api";
 import { FaPlus } from "react-icons/fa";
 import confirmDelete from "../utils/confirmDelete";
 import Loader from "../components/Loader";
+import Pagination from "../components/Pagination";
 
 import "../assets/styles/task.css";
 
@@ -19,14 +20,21 @@ const Tasks = () => {
   const [filter, setFilter] = useState("All");
   const [loading, setLoading] = useState(true);
   const [showForm, setShowForm] = useState(false);
+  const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
 
   const fetchTasks = async () => {
     try {
       setLoading(true);
-      const { data } = await api.get("/tasks");
+
+      const { data } = await api.get(
+        `/tasks/pagination?page=${page}&limit=4&status=${encodeURIComponent(filter)}`,
+      );
+
       setTasks(data.tasks);
+      setTotalPages(data.totalPages);
     } catch (error) {
-      toast.error("Failed to load tasks");
+      toast.error(error.response?.data?.message || "Failed to load tasks");
     } finally {
       setLoading(false);
     }
@@ -43,6 +51,13 @@ const Tasks = () => {
 
   useEffect(() => {
     fetchTasks();
+  }, [page, filter]);
+
+  useEffect(() => {
+    setPage(1);
+  }, [filter]);
+
+  useEffect(() => {
     fetchEmployees();
   }, []);
 
@@ -74,9 +89,6 @@ const Tasks = () => {
     setSelectedTask(null);
     setShowForm(false);
   };
-
-  const filteredTasks =
-    filter === "All" ? tasks : tasks.filter((task) => task.status === filter);
 
   return (
     <Layout>
@@ -118,13 +130,18 @@ const Tasks = () => {
       )}
 
       {loading ? (
-        <Loader text="Loading Tasks..."/>
+        <Loader text="Loading Tasks..." />
       ) : (
-        <TaskTable
-          tasks={filteredTasks}
-          handleEdit={handleEdit}
-          handleDelete={handleDelete}
-        />
+        !showForm && (
+          <TaskTable
+            tasks={tasks}
+            handleEdit={handleEdit}
+            handleDelete={handleDelete}
+          />
+        )
+      )}
+      {!showForm && (
+        <Pagination page={page} totalPages={totalPages} setPage={setPage} />
       )}
     </Layout>
   );

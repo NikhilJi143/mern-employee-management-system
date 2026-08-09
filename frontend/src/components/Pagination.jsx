@@ -1,8 +1,6 @@
-const Pagination = ({ page, totalPages, setPage }) => {
-  if (totalPages <= 1) {
-    return null;
-  }
+import "../assets/styles/pagination.css"
 
+const Pagination = ({ page, totalPages, setPage }) => {
   return (
     <div className="pagination">
       <button disabled={page === 1} onClick={() => setPage(page - 1)}>

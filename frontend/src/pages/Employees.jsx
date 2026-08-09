@@ -5,7 +5,7 @@ import Layout from "../components/Layout";
 import EmployeeForm from "../components/employees/EmployeeForm";
 import EmployeeTable from "../components/employees/EmployeeTable";
 import SearchBar from "../components/employees/SearchBar";
-import Pagination from "../components/employees/Pagination";
+import Pagination from "../components/Pagination";
 import api from "../services/api";
 import { FaPlus } from "react-icons/fa";
 import confirmDelete from "../utils/confirmDelete";
@@ -27,9 +27,12 @@ const Employees = () => {
     try {
       setLoading(true);
 
-      const { data } = await api.get(`/employees?page=${page}`);
-      setEmployees(data.employee);
-      setTotalPages(1);
+      const { data } = await api.get(
+        `/employees/pagination?page=${page}&limit=4&keyword=${encodeURIComponent(search)}`,
+      );
+
+      setEmployees(data.employees);
+      setTotalPages(data.totalPages);
     } catch (error) {
       toast.error(error.response?.data?.message || "Failed to load employees");
     } finally {
@@ -39,7 +42,11 @@ const Employees = () => {
 
   useEffect(() => {
     fetchEmployees();
-  }, [page]);
+  }, [page, search]);
+
+  useEffect(() => {
+    setPage(1);
+  }, [search]);
 
   // ------------- DELETE EMPLOYEE ------------//
   const handleDelete = async (id) => {
@@ -71,10 +78,6 @@ const Employees = () => {
     setSelectedEmployee(null);
     setShowForm(false);
   };
-
-  const filteredEmployees = (employees || []).filter((employee) =>
-    employee.name.toLowerCase().includes(search.toLowerCase()),
-  );
 
   return (
     <Layout>
@@ -117,14 +120,17 @@ const Employees = () => {
       {loading ? (
         <Loader text="Loading Employees..." />
       ) : (
-        <EmployeeTable
-          employees={filteredEmployees}
-          handleEdit={handleEdit}
-          handleDelete={handleDelete}
-        />
+        !showForm && (
+          <EmployeeTable
+            employees={employees}
+            handleEdit={handleEdit}
+            handleDelete={handleDelete}
+          />
+        )
       )}
-
-      <Pagination page={page} totalPages={totalPages} setPage={setPage} />
+      {!showForm && (
+        <Pagination page={page} totalPages={totalPages} setPage={setPage} />
+      )}
     </Layout>
   );
 };
