@@ -6,6 +6,23 @@ The application provides a modern dashboard for managing employees and tasks, al
 
 ---
 
+# 🚀 Live Demo
+
+### 🌐 Live Application
+
+https://mern-employee-management-system-1-xfi7.onrender.com/
+
+### 🔗 GitHub Repository
+
+[View Repository](https://github.com/NikhilJi143/mern-employee-management-system)
+
+### ⚙️ Backend API
+
+https://mern-employee-management-system-kg5s.onrender.com/
+
+> The frontend and backend are deployed on Render, while MongoDB is used as the application database.
+
+
 ## 📌 Features
 
 ### 🔐 Authentication
@@ -161,7 +178,6 @@ MERN-Employee-Management/
 │   │   ├── dashboardRoutes.js
 │   │   ├── employeeRoutes.js
 │   │   └── taskRoutes.js
-│   ├── .env
 │   ├── server.js
 │   └── package.json
 │
@@ -298,13 +314,11 @@ The backend also validates JWT authentication for protected API requests.
 
 ---
 
-## 🔗 REST API
+# 🔗 REST API
 
-### Base URL
+### Production Backend URL
 
-```text
-http://localhost:5000/api
-```
+https://mern-employee-management-system-kg5s.onrender.com/
 
 ### Authentication
 
@@ -317,7 +331,7 @@ POST /api/auth/login
 
 ```text
 GET    /api/employees
-GET    /api/employees/:id
+GET    /api/employees/pagination?page=1&limit=4&keyword=
 POST   /api/employees
 PUT    /api/employees/:id
 DELETE /api/employees/:id
@@ -327,7 +341,7 @@ DELETE /api/employees/:id
 
 ```text
 GET    /api/tasks
-GET    /api/tasks/:id
+GET    /api/tasks/pagination?page=1&limit=4
 POST   /api/tasks
 PUT    /api/tasks/:id
 DELETE /api/tasks/:id
@@ -339,7 +353,11 @@ DELETE /api/tasks/:id
 GET /api/dashboard
 ```
 
----
+Protected API requests use:
+
+```text
+Authorization: Bearer <token>
+```
 
 # ⚙️ Installation & Setup
 
@@ -623,12 +641,10 @@ User-friendly feedback is displayed instead of exposing unnecessary server error
 
 # 🚀 Future Improvements
 
-Possible improvements:
+Possible future improvements:
 
 - Role-based access control
 - Admin and employee roles
-- Pagination
-- Advanced search
 - Task priority
 - Task due dates
 - Employee profile pictures
@@ -638,36 +654,48 @@ Possible improvements:
 - Password reset
 - Refresh tokens
 - Automated testing
-- Production deployment
+- Unit and integration testing
 
 ---
 
 # 🌐 Deployment
 
-Possible hosting options:
+The application has been deployed and tested successfully.
 
 ### Frontend
-- Vercel
-- Netlify
+
+**Render**
+
+https://mern-employee-management-system-1-xfi7.onrender.com/
 
 ### Backend
-- Render
-- Railway
+
+**Render**
+
+https://mern-employee-management-system-kg5s.onrender.com/
 
 ### Database
-- MongoDB Atlas
 
-Production environment variables should be configured on the hosting platform.
+**MongoDB**
 
-Never expose:
+The application uses MongoDB for storing users, employees, and tasks.
+
+### Production Environment
+
+Environment variables are configured separately on the deployment platform.
+
+The following sensitive variables should never be committed to GitHub:
 
 ```env
 MONGO_URI=
 JWT_SECRET=
 ```
 
-inside frontend code or public repositories.
+Frontend production API configuration:
 
+```env
+VITE_API_URL=https://mern-employee-management-system-kg5s.onrender.com/api
+```
 ---
 
 # 🎯 Learning & Interview Purpose
